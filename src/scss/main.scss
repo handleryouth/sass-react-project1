@@ -1,0 +1,150 @@
+@mixin flexContainer($flexdirection, $justify, $align) {
+  display: flex;
+  flex-direction: $flexdirection;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin hw($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+$purple: hsl(277, 64%, 61%);
+$darkdesaturated: hsl(244, 38%, 16%);
+$darkblue: hsl(233, 47%, 7%);
+
+body {
+  margin: 0;
+  @media all and (min-width: 1693px) {
+    @include flexContainer(column, center, center);
+    height: 100vh;
+  }
+
+  @media all and (min-width: 1440px) {
+    width: 1400px;
+    margin: 0 auto;
+  }
+
+  @media all and (max-width: 320px) {
+    width: 320px;
+  }
+}
+
+.main-container {
+  @include flexContainer(row, unset, center);
+  @include hw(unset, unset);
+  margin: 0 auto;
+  background-color: $darkdesaturated;
+  overflow: hidden;
+  border-radius: 10px;
+  color: white;
+
+  & span {
+    color: $purple;
+  }
+
+  & h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+
+  .description {
+    padding: 2vw 5vw;
+    &-text {
+      width: clamp(21rem, 45vw, 40rem);
+      font-size: clamp(1rem, 1.7vw, 1.7rem);
+    }
+  }
+
+  .number {
+    @include flexContainer(row, space-between, center);
+    width: clamp(20rem, 44vw, 39rem);
+    .number-list {
+      margin: 0 0.5vw;
+      @include flexContainer(column, unset, flex-start);
+      h3 {
+        font-size: clamp(1.8rem, 4vw, 2.8rem);
+        margin: 1vw 0;
+      }
+      p {
+        font-size: 2vw;
+      }
+    }
+  }
+
+  .image {
+    background-image: url("../images/image-header-desktop.jpg");
+    background-color: $purple;
+    background-blend-mode: multiply;
+    background-size: cover;
+    @include hw(clamp(30rem, 83vw, 45rem), clamp(21rem, 42vw, 34rem));
+    background-repeat: no-repeat;
+  }
+
+  @media all and (min-width: 1440px) {
+    .description {
+      &-text {
+        width: 37rem;
+        font-size: clamp(1rem, 2.4vw, 1.7rem);
+      }
+    }
+
+    .number {
+      width: 36rem;
+      .number-list {
+        margin: 0 0.5rem;
+        h3 {
+          font-size: 2.8rem;
+          margin: 1rem 0;
+        }
+        p {
+          font-size: 1.8rem;
+        }
+      }
+    }
+
+    .image {
+      @include hw(58rem, 36rem);
+    }
+  }
+
+  @media all and (max-width: 768px) {
+    @include flexContainer(column-reverse, center, center);
+    @include hw(100%, unset);
+    text-align: center;
+    border-radius: unset;
+
+    & h1 {
+      font-size: clamp(2rem, 6vw, 2.8rem);
+      width: 100%;
+    }
+
+    .description {
+      padding: unset;
+      &-text {
+        width: 100%;
+        font-size: clamp(1.3rem, 4vw, 1.7rem);
+      }
+    }
+
+    .number {
+      @include flexContainer(column, center, center);
+      width: auto;
+      .number-list {
+        @include flexContainer(column, center, center);
+
+        h3 {
+          font-size: clamp(3.5rem, 9vw, 4rem);
+        }
+
+        p {
+          font-size: clamp(1.3rem, 4vw, 1.5rem);
+        }
+      }
+    }
+
+    .image {
+      @include hw(100%, clamp(18rem, 20vw, 36rem));
+    }
+  }
+}
