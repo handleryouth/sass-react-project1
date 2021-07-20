@@ -84,9 +84,6 @@ body {
   }
 
   @media all and (min-width: 1693px) {
-    .description {
-      padding: 2rem, 4rem;
-    }
     .image {
       @include hw(58rem, 36rem);
     }
@@ -94,6 +91,7 @@ body {
 
   @media all and (min-width: 1440px) {
     .description {
+      padding: 2rem, 4rem;
       &-text {
         width: 37rem;
         font-size: clamp(1rem, 2.4vw, 1.7rem);
@@ -115,7 +113,7 @@ body {
     }
 
     .image {
-      @include hw(43rem, 34rem);
+      @include hw(43rem, 36rem);
     }
   }
 
