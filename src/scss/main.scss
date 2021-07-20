@@ -16,12 +16,10 @@ $darkblue: hsl(233, 47%, 7%);
 
 body {
   margin: 0;
-  @media all and (min-width: 1693px) {
-    @include flexContainer(column, center, center);
-    height: 100vh;
-  }
 
   @media all and (min-width: 1440px) {
+    @include flexContainer(column, center, center);
+    height: 100vh;
     width: 1400px;
     margin: 0 auto;
   }
@@ -46,10 +44,13 @@ body {
 
   & h1 {
     font-size: clamp(2rem, 4vw, 3rem);
+    font-family: "Inter", sans-serif;
   }
 
   .description {
     padding: 2vw 5vw;
+    font-family: "Inter", sans-serif;
+
     &-text {
       width: clamp(21rem, 45vw, 40rem);
       font-size: clamp(1rem, 1.7vw, 1.7rem);
@@ -68,6 +69,7 @@ body {
       }
       p {
         font-size: 2vw;
+        font-family: "Lexend Deca", sans-serif;
       }
     }
   }
@@ -79,6 +81,15 @@ body {
     background-size: cover;
     @include hw(clamp(30rem, 83vw, 45rem), clamp(21rem, 42vw, 34rem));
     background-repeat: no-repeat;
+  }
+
+  @media all and (min-width: 1693px) {
+    .description {
+      padding: 2rem, 4rem;
+    }
+    .image {
+      @include hw(58rem, 36rem);
+    }
   }
 
   @media all and (min-width: 1440px) {
@@ -104,7 +115,7 @@ body {
     }
 
     .image {
-      @include hw(58rem, 36rem);
+      @include hw(43rem, 34rem);
     }
   }
 
